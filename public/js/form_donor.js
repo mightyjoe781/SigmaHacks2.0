@@ -2,8 +2,8 @@ function addcab(h){
     firebase.database().ref('donor/' + h.id).set(h);
   }
 
-  $(add_cabpool).click(function(){
-    var cab = {
+  $(add_donor).click(function(){
+    var donor = {
       id: $("#v1").val() + Date.now(),
 
       date: $("#v1").val(),
@@ -12,29 +12,29 @@ function addcab(h){
       contact: $("#v5").val(),
       comments: $("#v6").val()
     };
-  addcab(cab);
+    addDonor(donor);
   alert("Created!");
     });
 
-  var addcabref = firebase.database().ref().child("donor");
-    addcabref.on("value", function(snapshot) {
-        $("#show-cabs").empty();
-        var cabHTMLitem = "<h3> Donor </h3>"
+    var adddonorref = firebase.database().ref().child("donor");
+    adddonorref.on("value", function(snapshot) {
+        $("#show-donor").empty();
+        var donorHTMLitem = "<h3> Donor List </h3>"
 
         snapshot.forEach(function(childsnapshot){
           var item = childsnapshot.val();
-          cabHTMLitem += "<div class'cabHTMLitem'><hr><ul></div>";
-          cabHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
-          cabHTMLitem += "<li> Date : <span>"+ item.date + "</span></li>"
-          cabHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
-          cabHTMLitem += "</ul></div>";
-          cabHTMLitem += "<button type='button' class='btn btn-primary delete-cab' id="+item.id+">Delete Cab</button>";
+          donorHTMLitem += "<div class'donorHTMLitem'><hr><ul></div>";
+          donorHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
+          donorHTMLitem += "<li> Date : <span>"+ item.date + "</span></li>"
+          donorHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
+          donorHTMLitem += "</ul></div>";
+          donorHTMLitem += "<button type='button' class='btn btn-primary delete-donor' id="+item.id+">Delete Donor</button>";
 
       });
-      $("#show-cabs").html(cabHTMLitem);
+      $("#show-donor").html(donorHTMLitem);
     });
 
-    $(document).on("click", ".delete-cab", function(){
-      var cabID = $(this).attr('id');
-      firebase.database().ref("donor/" + cabID).remove();
+    $(document).on("click", ".delete-donor", function(){
+      var donorID = $(this).attr('id');
+      firebase.database().ref("donor/" + donorID).remove();
     }); 

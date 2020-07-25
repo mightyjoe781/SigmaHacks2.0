@@ -1,9 +1,9 @@
-function addcab(h){
+function addpatient(h){
     firebase.database().ref('patient/' + h.id).set(h);
   }
 
-  $(add_cabpool).click(function(){
-    var cab = {
+  $(add_patient).click(function(){
+    var patient = {
       id: $("#v1").val() + Date.now(),
 
       date: $("#v1").val(),
@@ -12,29 +12,28 @@ function addcab(h){
       contact: $("#v5").val(),
       comments: $("#v6").val()
     };
-  addcab(cab);
+    addpatient(patient);
   alert("Created!");
     });
 
-  var addcabref = firebase.database().ref().child("patient");
-    addcabref.on("value", function(snapshot) {
-        $("#show-cabs").empty();
-        var cabHTMLitem = "<h3> Patient </h3>"
+    var addpatientref = firebase.database().ref().child("patient");
+    addpatientref.on("value", function(snapshot) {
+        $("#show-patient").empty();
+        var patientHTMLitem = "<h3>Patient List</h3>"
 
         snapshot.forEach(function(childsnapshot){
           var item = childsnapshot.val();
-          cabHTMLitem += "<div class'cabHTMLitem'><hr><ul></div>";
-          cabHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
-          cabHTMLitem += "<li> Date : <span>"+ item.date + "</span></li>"
-          cabHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
-          cabHTMLitem += "</ul></div>";
-          cabHTMLitem += "<button type='button' class='btn btn-primary delete-cab' id="+item.id+">Delete Cab</button>";
-
+          patientHTMLitem += "<div class'patientHTMLitem'><hr><ul></div>";
+          patientHTMLitem += "<li> Time : <span>"+ item.time + "</span></li>"
+          patientHTMLitem += "<li> Date : <span>"+ item.date + "</span></li>"
+          patientHTMLitem += "<li> Contact : <span>"+ item.contact + "</span></li>"
+          patientHTMLitem += "</ul></div>";
+          patientHTMLitem += "<button type='button' class='btn btn-primary delete-patient' id="+item.id+">Delete Cab</button>";
       });
-      $("#show-cabs").html(cabHTMLitem);
+      $("#show-patient").html(patientHTMLitem);
     });
 
-    $(document).on("click", ".delete-cab", function(){
-      var cabID = $(this).attr('id');
-      firebase.database().ref("patient/" + cabID).remove();
+    $(document).on("click", ".delete-patient", function(){
+      var patientID = $(this).attr('id');
+      firebase.database().ref("patient/" + patientID).remove();
     }); 
