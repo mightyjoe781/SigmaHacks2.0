@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Hack
+    </title>
+</head>
+<body>
+<!--donor form-->
+
+  <div id="donor_form" style="margin: auto; width: 50%; border: 2px dotted black; padding: 25px;">
+
+    <form>
+      <div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="v1">Date</label>
+          <input id="v1" type="date" class="form-control" value ="2020-01-01" min="2020-01-01" max="2020-12-30" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationDefault01">Time</label>
+          <input id="v2" type="time" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Start Location*</label>
+          <select id="v3" class="custom-select my-1 mr-sm-2" required>
+            <option selected>Other</option>
+            <option value="1">Campus</option>
+            <option value="2">Panjim</option>
+            <option value="3">Madgaon</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">End Location*</label>
+          <select id="v4" class="custom-select my-1 mr-sm-2" required>
+            <option selected>Other</option>
+            <option value="1">Campus</option>
+            <option value="2">Panjim</option>
+            <option value="3">Madgaon</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3 mb-3">
+          <label for="v5">Contact Number</label>
+          <input id="v5" type="text" pattern="[1-9]{1}[0-9]{9}" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationDefault03">Comments</label>
+          <input id="v6" type="text" class="form-control" style="size: auto;">
+        </div>
+            </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+          <label class="form-check-label" for="invalidCheck2">
+            Agree to terms and conditions
+          </label>
+        </div>
+      </div>
+      <button id="add_cabpool" class="btn btn-primary" type="button" >Create</button>
+      <br>
+      <button onClick="window.location.href=window.location.href; alert('Form reset!');" class="btn btn-warning" type="button">Reset</button>
+    </div>
+    </form>
+  </div>
+
+
+
+  <!--show cabs-->
+
+  <div class="container" id="show-cabs">
+    <h1> Donor </h1>
+
+  </div>
+
+
+     <!--firebase-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyD8h6IrR81rq4DyKmVvyiFwK8tPFFmhYb4",
+          authDomain: "sigmahacks2.firebaseapp.com",
+          databaseURL: "https://sigmahacks2.firebaseio.com",
+          projectId: "sigmahacks2",
+          storageBucket: "sigmahacks2.appspot.com",
+          messagingSenderId: "401417808646",
+          appId: "1:401417808646:web:bd47249e5f66176f3d4c87"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+     <!--js file-->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="js/form_patient.js"></script>
+</body>
+</html>
