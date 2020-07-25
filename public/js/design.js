@@ -1,4 +1,4 @@
-//============MOBILE VIEW HAMBURGER===========//
+
 //hamburger button 
 document.querySelector("body > div.ui.pointing.menu.stackable > div.hamburger").addEventListener("click", function(e) { 
     $menu = $(this).parent();
@@ -12,5 +12,25 @@ document.querySelector("body > div.ui.pointing.menu.stackable > div.hamburger").
     e.preventDefault();
 });
 
-//================DARK THEME============//
+document.addEventListener('DOMContentLoaded', () => {
 
+    const themeStylesheet = document.getElementById('theme');
+    const storedTheme = localStorage.getItem('theme');
+    if(storedTheme){
+        themeStylesheet.href = storedTheme;
+    }
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        // if it's light -> go dark
+        if(themeStylesheet.href.includes('light')){
+            themeStylesheet.href = 'dark-theme.css';
+            themeToggle.innerHTML = '<i class="fa fa-sun-o fa-lg"></i>';
+        } else {
+            // if it's dark -> go light
+            themeStylesheet.href = 'light-theme.css';
+            themeToggle.innerHTML = '<i class="fa fa-moon-o fa-lg"></i>';
+        }
+        // save the preference to localStorage
+        localStorage.setItem('theme',themeStylesheet.href)  
+    })
+})
