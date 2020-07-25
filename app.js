@@ -13,9 +13,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //===================ROUTES=================//
+
 //HOMEPAGE
 app.get("/",function(req,res){
-    res.send("Hey There!");
+    res.render("index");
 });
 
 //=================lISTENER PROCESS============//
