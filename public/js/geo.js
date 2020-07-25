@@ -28,7 +28,7 @@ function geocodeAndSearch(){
   
   // embeded map
   if(query != ""){
-      document.getElementById("embededMap").innerHTML = '<iframe width="100%" height="400px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q='+ query.replace(" ","%20") +'%20nearby&key=AIzaSyACDxf4BL0zC3sYra6Eq72JAjthSwNSoXQ" allowfullscreen></iframe>'
+      document.getElementById("embededMap").innerHTML = '<iframe width="100%" height="400px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?q='+ query.replace(" ","%20") +'%20nearby&key=AIzaSyAFqF8JdULdRHZ-gGw3PJh1p51yKuQCcPY" allowfullscreen></iframe>'
     }
 
   let geocodeParam ={
