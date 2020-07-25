@@ -63,7 +63,7 @@ app.post("/email",function(req,res){
 	var city = req.body.city;
 	var bg = req.body.bg;
 	console.log(email);
-	sgMail.setApiKey("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");
+	sgMail.setApiKey("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");
 	const msg = {
 	to: email,
 	from: 'pj.flux2001@gmail.com',
