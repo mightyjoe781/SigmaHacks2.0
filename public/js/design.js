@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
         // if it's light -> go dark
         if(themeStylesheet.href.includes('light')){
-            themeStylesheet.href = 'dark-theme.css';
+            themeStylesheet.href = '/css/dark-theme.css';
             themeToggle.innerHTML = '<i class="fa fa-sun-o fa-lg"></i>';
         } else {
             // if it's dark -> go light
-            themeStylesheet.href = 'light-theme.css';
+            themeStylesheet.href = '/css/light-theme.css';
             themeToggle.innerHTML = '<i class="fa fa-moon-o fa-lg"></i>';
         }
         // save the preference to localStorage
