@@ -1,0 +1,26 @@
+{
+  "name": "sigmahacks2.0",
+  "version": "1.0.0",
+  "description": "plasma_forms",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mightyjoe781/SigmaHacks2.0.git"
+  },
+  "author": "Sudhanshu Mohan Kashayp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mightyjoe781/SigmaHacks2.0/issues"
+  },
+  "homepage": "https://github.com/mightyjoe781/SigmaHacks2.0#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.2.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mailgun-js": "^0.22.0"
+  }
+}
