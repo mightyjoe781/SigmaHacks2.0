@@ -50,6 +50,16 @@ app.get("/plasma_bank",function(req,res){
 	res.render("plasma_bank");
 });
 
+
+//===EXTRA ROUTES=====//
+app.get("/technology",function(req,res){
+	res.render("technology");
+});
+app.get("/contact",function(req,res){
+	res.render("contact");
+});
+
+
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 app.post("/email",function(req,res){
