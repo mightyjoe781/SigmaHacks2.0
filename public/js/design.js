@@ -11,4 +11,6 @@ document.querySelector("body > div.ui.pointing.menu.stackable > div.hamburger").
     }
     e.preventDefault();
 });
+
 //================DARK THEME============//
+

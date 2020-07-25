@@ -12,6 +12,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
+    <!-- =================PUSHBOTS CONFIG=================== -->
+    <script>
+        //some default pre init
+        var PB = PB || {};PB.q = PB.q || [];PB.events = PB.events || [];
+        //PushBots ApplicationId (required)
+        PB.app_id = "5f05dcf2a20130089372bbf5";
+        //Your domain name, must be HTTPS or localhost  (required)
+        PB.domain = "https://sh001.herokuapp.com";
+        //Update and uncomment it if you are using custom safari certificate for your app
+        PB.safari_push_id = "web.com.pushbots.safaripush";
+        //****************************************
+        PB.logging_enabled = true;
+        PB.auto_subscribe = true;   
+        //Custom worker and manifest URL
+        PB.worker_url = PB.domain + "/pushbots-worker.js";      
+        //Welcome notification message
+        PB.welcome = {title:"Welcome ",message:"Thanks for subscribing!", url :PB.domain};
+        
+        function sendNotification(){
+              PB.register();
+              PB.q.push(["sendNotification", {title:"Hey ",message:"Why not?", url :"https://sh001.herokuapp.com"}]);
+        }
+        </script>
+        <script src="//cdn.pushbots.com/js/sdk.min.js" type="text/javascript" onload="PB.init()" async></script>
 </head>
 <body>
     <div class="ui pointing inverted menu stackable">
