@@ -1,26 +1,29 @@
 // API for local news
-// initial location : Spain
+// initial location : user's country
 
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
- 
-  var i;
-  fetch("https://api.coronatracker.com/news/trending?limit=10&offset&country=India&countryCode", requestOptions)
-    .then(response => response.json())
-    .then(result => document.getElementById("news").innerHTML = result)
-    .then(result => {
-          document.getElementById("news").innerHTML = "";
-          for(i = 0; i < 10 ; i++){
-            var author = "";
-            if(result.items[i].author.length==0){
-              author = result.items[i].author;
-            } else {
-              author = "Anonymous";
+    $(function() {
+      $.getJSON("https://extreme-ip-lookup.com/json/",
+         function(json){
+     
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+    var i;
+    fetch("https://api.coronatracker.com/news/trending?limit=25&offset&country="+json.country+"&countryCode", requestOptions)
+      .then(response => response.json())
+      //.then(results => console.log(results))
+      .then(result => (function(){
+            //document.getElementById("news1").innerHTML += '<marquee behavior="scroll" direction="up">';
+            for(i = 0; i < 25 ; i++){
+              document.getElementById("news1").innerHTML += "<li class=''><span>" + result.items[i].publishedAt.replace("T"," ").replace("Z"," ") + "</span>| <a href='" + result.items[i].url + "'>" + result.items[i].title + "</a> | "+result.items[i].description+"...</li><br><br>";
             }
-               document.getElementById("news").innerHTML += "<div class=\"item\"><div class=\"content\"><div class=\"ui header center aligned\"><hr>" + result.items[i].title + "<hr></div>" + " <div class=\"meta\"> Author : "+ author + "<br> Published on "+ result.items[i].publishedAt.replace("T", " @ ").replace("Z", " ") +"<br> Published by "+ result.items[i].siteName + "</div><div class=\"description\"><br>" + result.items[i].description + "<br><br>" + result.items[i].content + "<br><br> Read More at : " + "<a href = '" + result.items[i].url + "'>" + result.items[i].url +"</a><br><br></div><div class=\"ui image\"> <img src=\"" + result.items[i].urlToImage+"\"><br><br></div></div></div>";
-          }
-  
-    })
-    .catch(error => console.log('error', error));
+     
+            //document.getElementById("news1").innerHTML += '</marquee>';
+      })())
+      .catch(error => console.log('error', error));
+     
+      //<marquee behavior="scroll" direction="up">Here is some scrolling text... going up!</marquee>
+    }   
+                );
+    });
