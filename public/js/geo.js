@@ -19,7 +19,7 @@ function showPosition(position) {
 getLocation();
 
 var platform = new H.service.Platform({
-  'apikey': "V7BodnTE7zBiQkaTpI5s2qNDSMP-4e1Ew6EodzZk8zY"
+  'apikey': "JP-gD6e4WWDbixevPMBGqYnruBv8wo_QO6h6a-aIErI"
 });
 var geocoder = platform.getSearchService();
 function geocodeAndSearch(){
